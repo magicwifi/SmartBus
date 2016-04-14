@@ -1,0 +1,87 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  main_battery: 1
+  back_battery: 1
+  forword_current: 1
+  back_current: 1
+  temperature: 1
+  70_sensor_status: false
+  90_sensor_status: false
+  up_motor_status: false
+  down_motor_status: false
+  door_sensor: 
+  voice1_sensor: 
+  voice2_sensor: 
+  back_box_stauts: false
+  main_back_switch: false
+  main_motor_stauts: false
+  electromagnet_stauts: false
+  voice_module_status: false
+  lightbox_module_status: false
+  led_module_status: false
+  error_name: 1
+  longtitude: 1.5
+  latitude: 1.5
+  cdma_rssi: 1
+  cdma_rssi: false
+  lightbox_start1_at: 2016-04-12 17:41:13
+  lightbox_stop1_at: 2016-04-12 17:41:13
+  lightbox_start2_at: 2016-04-12 17:41:13
+  lightbox_stop2_at: 2016-04-12 17:41:13
+  led_start1_at: 2016-04-12 17:41:13
+  led_stop1_at: 2016-04-12 17:41:13
+  led_start2_at: 2016-04-12 17:41:13
+  led_stop2_at: 2016-04-12 17:41:13
+  control_start1_at: 2016-04-12 17:41:13
+  control_stop1_at: 2016-04-12 17:41:13
+  control_start2_at: 2016-04-12 17:41:13
+  control_stop2_at: 2016-04-12 17:41:13
+  main_lowest_vol: 1
+  back_lowest_vol: 1
+  apnnum: MyString
+  phonenum: MyString
+  led_display_string: MyString
+
+two:
+  main_battery: 1
+  back_battery: 1
+  forword_current: 1
+  back_current: 1
+  temperature: 1
+  70_sensor_status: false
+  90_sensor_status: false
+  up_motor_status: false
+  down_motor_status: false
+  door_sensor: 
+  voice1_sensor: 
+  voice2_sensor: 
+  back_box_stauts: false
+  main_back_switch: false
+  main_motor_stauts: false
+  electromagnet_stauts: false
+  voice_module_status: false
+  lightbox_module_status: false
+  led_module_status: false
+  error_name: 1
+  longtitude: 1.5
+  latitude: 1.5
+  cdma_rssi: 1
+  cdma_rssi: false
+  lightbox_start1_at: 2016-04-12 17:41:13
+  lightbox_stop1_at: 2016-04-12 17:41:13
+  lightbox_start2_at: 2016-04-12 17:41:13
+  lightbox_stop2_at: 2016-04-12 17:41:13
+  led_start1_at: 2016-04-12 17:41:13
+  led_stop1_at: 2016-04-12 17:41:13
+  led_start2_at: 2016-04-12 17:41:13
+  led_stop2_at: 2016-04-12 17:41:13
+  control_start1_at: 2016-04-12 17:41:13
+  control_stop1_at: 2016-04-12 17:41:13
+  control_start2_at: 2016-04-12 17:41:13
+  control_stop2_at: 2016-04-12 17:41:13
+  main_lowest_vol: 1
+  back_lowest_vol: 1
+  apnnum: MyString
+  phonenum: MyString
+  led_display_string: MyString

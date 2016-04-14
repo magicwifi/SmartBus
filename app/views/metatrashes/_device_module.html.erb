@@ -1,0 +1,51 @@
+<h3>设备核心模块状态表</h3> 
+<div class="device-status">
+
+  <div class="panel-body">
+ 
+  </div>
+
+
+<table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>模块名称</th>
+            <th>状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>主副充电池</td>
+            <td><%= convert_to_battery @metatrash.main_back_switch %></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>电机状态</td>
+            <td><%= convert_to_work @metatrash.main_motor_stauts  %></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>电磁铁状态</td>
+            <td><%= convert_to_work @metatrash.electromagnet_stauts  %></td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>语音模块状态</td>
+            <td><%= convert_to_work @metatrash.voice_module_status   %></td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>灯箱状态</td>
+            <td><%= convert_to_work @metatrash.lightbox_module_status   %></td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>LED状态</td>
+            <td><%= convert_to_work @metatrash.led_module_status   %></td>
+          </tr>
+
+        </tbody>
+      </table>
+</div>

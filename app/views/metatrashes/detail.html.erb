@@ -1,0 +1,67 @@
+<% provide(:title, @metatrash.name) %>
+<script>
+$(document).ready(function(){
+  var map = new BMap.Map("baidu");
+  var point = new BMap.Point(<%= @metatrash.longitude %>, <%= @metatrash.latitude %>);
+  map.centerAndZoom(point, 15);
+  })
+</script>
+
+<script type="text/javascript">
+  // DOM element where the Timeline will be attached
+  var container = document.getElementById('visualization');
+
+  // Create a DataSet (allows two way data-binding)
+  var items = new vis.DataSet([
+    {id: 1, content: 'item 1', start: '2013-04-20'},
+    {id: 2, content: 'item 2', start: '2013-04-14'},
+    {id: 3, content: 'item 3', start: '2013-04-18'},
+    {id: 4, content: 'item 4', start: '2013-04-16', end: '2013-04-19'},
+    {id: 5, content: 'item 5', start: '2013-04-25'},
+    {id: 6, content: 'item 6', start: '2013-04-27'}
+  ]);
+
+  // Configuration for the Timeline
+  var options = {};
+
+  // Create a Timeline
+  var timeline = new vis.Timeline(container, items, options);
+</script>
+
+
+<div class="row">
+<aside class="col-md-4">
+
+<section class="user_info">
+<h1>
+<%= gravatar_title_for @metatrash %>
+<%= @metatrash.name %>
+<%= @metatrash.phonenum %>
+</h1>
+ <span>
+     主蓄电池电压: <%= convert_to_vol @metatrash.main_battery  %>
+  </span>
+  <span>
+  副蓄电池电压: <%= convert_to_vol @metatrash.back_battery %>
+  </span>
+  <span>
+  电机正向电流: <%= convert_to_cur @metatrash.forword_current %>
+  </span>
+  <span>
+  电机反向电流: <%= convert_to_cur @metatrash.back_current %>
+  </span>
+</section>
+  <section>
+     <%= render 'stats', :rssi=>@metatrash.cdma_rssi, :temp => @metatrash.temperature %>
+   </section>
+<section>
+  <div id="baidu"></div>
+  </section>
+</aside>
+<div class="col-md-8">
+<div id="visualization"></div>
+</div>
+
+
+</div>
+

@@ -1,0 +1,52 @@
+<% provide(:title, @metatrash.name) %>
+<script>
+$(document).ready(function(){
+  var map = new BMap.Map("baidu");
+  var point = new BMap.Point(<%= @metatrash.longitude %>, <%= @metatrash.latitude %>);
+  map.centerAndZoom(point, 15);
+  })
+</script>
+<div class="row">
+<aside class="col-md-4">
+
+<section class="user_info">
+<h1>
+<%= gravatar_title_for @metatrash %>
+<%= @metatrash.name %>
+<%= @metatrash.phonenum %>
+</h1>
+ <span>
+     主蓄电池电压: <%= convert_to_vol @metatrash.main_battery  %>
+  </span>
+  <span>
+  副蓄电池电压: <%= convert_to_vol @metatrash.back_battery %>
+  </span>
+  <span>
+  电机正向电流: <%= convert_to_cur @metatrash.forword_current %>
+  </span>
+  <span>
+  电机反向电流: <%= convert_to_cur @metatrash.back_current %>
+  </span>
+</section>
+  <section>
+     <%= render 'stats', :rssi=>@metatrash.cdma_rssi, :temp => @metatrash.temperature %>
+   </section>
+<section>
+  <div id="baidu"></div>
+  </section>
+</aside>
+<div class="col-md-8">
+<section>
+<%= render 'device_sensor'    %>
+</section>
+
+<div id="device-middle"></div>
+<section>
+<%= render 'device_module'    %>
+</section>
+
+</div>
+
+
+</div>
+

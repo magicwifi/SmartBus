@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SampleApp | <%= yield(:title) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<link href="/static/vis.min.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=nDEigMY5QY9ZfEQDzWZU6eBm" ></script>
+  <script type="text/javascript" src="/static/vis.min.js" ></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+<% flash.each do |message_type, message| %>
+<div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+<div id="wrapper">
+<%= yield %>
+</div>
+      <%= render 'layouts/footer' %>
+    </div>
+
+
+</body>
+</html>

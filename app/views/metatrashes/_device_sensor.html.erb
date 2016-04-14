@@ -1,0 +1,61 @@
+<h3>设备传感器状态表</h3> 
+<div class="device-status">
+
+  <div class="panel-body">
+ 
+  </div>
+
+
+<table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>传感器名称</th>
+            <th>状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>传感器70%</td>
+            <td><%= convert_to_status @metatrash.sensor70_status    %></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>传感器90%</td>
+            <td><%= convert_to_status @metatrash.sensor90_status   %></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>电机上限位置</td>
+            <td><%= convert_to_status @metatrash.up_motor_status   %></td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>电机下限位置</td>
+            <td><%= convert_to_status @metatrash.down_motor_status   %></td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>开门传感器</td>
+            <td><%= convert_to_status @metatrash.door_sensor_status   %></td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>语音开门1</td>
+            <td><%= convert_to_status @metatrash.voice1_sensor_status   %></td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>语音开门2</td>
+            <td><%= convert_to_status @metatrash.voice2_sensor_status   %></td>
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td>副箱满桶</td>
+            <td><%= convert_to_status @metatrash.back_box_stauts   %></td>
+          </tr>
+	
+        </tbody>
+      </table>
+</div>

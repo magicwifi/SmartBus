@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phonenum: MyString
+  charge_time: 1
+  battery_remain: 1.5
+  mechanics_status: false
+  equipment_status: false
+  compress_time: 1
+  overflow_remain: 1.5
+  switch_time: 1
+
+two:
+  name: MyString
+  phonenum: MyString
+  charge_time: 1
+  battery_remain: 1.5
+  mechanics_status: false
+  equipment_status: false
+  compress_time: 1
+  overflow_remain: 1.5
+  switch_time: 1
