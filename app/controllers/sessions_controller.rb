@@ -3,9 +3,9 @@ class SessionsController < ApplicationController
   end
   
   def create
-	user = User.find_by(email: params[:session][:email].downcase) 
-        if user && user.authenticate(params[:session][:password])
-	log_in user
+	admin = Admin.find_by(email: params[:session][:email].downcase) 
+        if admin && admin.authenticate(params[:session][:password])
+	log_in admin
 	redirect_to trashes_url
 	else
 	flash[:danger] = 'Invalid email/password combination' 
