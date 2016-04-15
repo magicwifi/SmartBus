@@ -17,11 +17,11 @@ end
 	@current_user = nil 
   end
 
-def gravatar_for(trash)
-	if trash.running?
-        	image_tag("work.png", alt: trash.phonenum, class: "gravatar", size:"52")
+def gravatar_for(driver)
+	if driver.running?
+        	image_tag("work.png", alt: driver.name, class: "gravatar", size:"52")
 	else
-        	image_tag("stop.png", alt: trash.phonenum, class: "gravatar", size:"52")
+        	image_tag("stop.png", alt: driver.name, class: "gravatar", size:"52")
 	end	
 end
 

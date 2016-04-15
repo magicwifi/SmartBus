@@ -1,0 +1,19 @@
+ <% provide(:title, 'All users') %>
+    <h1>全部司机</h1>
+<br>
+<%= link_to "新增司机", new_bus_driver_url, {:class=>"btn btn-primary" } %>
+<br>
+<br>
+<br>
+    <ul class="users">
+<% @bus_drivers.each do |bus_driver| %> 
+         <li>
+	 <%= gravatar_for bus_driver  %>
+	<div class="anode">
+      <%= link_to bus_driver.name, bus_driver %>
+	<div class="bnode"><%= link_to "更新", edit_bus_driver_url(bus_driver), {:class=>"btn btn-primary" } %> | <%= link_to "删除", bus_driver, :class=>"btn btn-danger", :method => :delete, :data => { :confirm=> "You sure?" }  %>   </div></div>
+        </li>
+<% end %> 
+</ul>
+
+
