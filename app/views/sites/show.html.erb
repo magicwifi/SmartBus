@@ -1,0 +1,23 @@
+<% provide(:title, @site.position) %>
+<script>
+$(document).ready(function(){
+  var map = new BMap.Map("baidu");
+  var point = new BMap.Point(<%= @site.longitude %>, <%= @site.latitude %>);
+  map.centerAndZoom(point, 15);
+var marker = new BMap.Marker(point);
+map.addOverlay(marker); 
+  })
+</script>
+<div class="row">
+<aside class="col-md-4">
+<section class="user_info">
+<h1>
+<%= @site.position %>
+</h1>
+</section>
+</aside>
+<section>
+  <div id="baidu"></div>
+  </section>
+</div>
+

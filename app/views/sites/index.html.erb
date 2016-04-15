@@ -1,0 +1,18 @@
+ <% provide(:title, 'All users') %>
+    <h1>全部站点</h1>
+<br>
+<%= link_to "新增站点", new_site_url, {:class=>"btn btn-primary" } %>
+<br>
+<br>
+<br>
+    <ul class="users">
+<% @sites.each do |site| %> 
+         <li>
+	<div class="anode">
+      <%= link_to site.position, site %>
+	<div class="bnode"><%= link_to "更新", edit_site_url(site), {:class=>"btn btn-primary" } %> | <%= link_to "删除", site, :class=>"btn btn-danger", :method => :delete, :data => { :confirm=> "You sure?" }  %>   </div></div>
+        </li>
+<% end %> 
+</ul>
+
+

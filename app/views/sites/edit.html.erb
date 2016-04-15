@@ -1,0 +1,10 @@
+  <% provide(:title, "Edit Site") %>
+    <h1>Update your profile</h1>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+<%= form_for(@site) do |f| %>
+<%= f.label :position,'输入站点详细位置，如北京市昌平区未来科技城鲁疃西路' %>
+          <%= f.text_field :position, class: 'form-control' %>
+<%= f.submit "Save changes", class: "btn btn-primary" %> <% end %>
+      </div>
+    </div>

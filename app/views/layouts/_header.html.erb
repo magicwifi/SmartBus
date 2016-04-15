@@ -5,7 +5,7 @@
           <ul class="nav navbar-nav navbar-right">
 	   <% if logged_in? %>
             <li><%= link_to "司机管理",   bus_drivers_url %></li>
-            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "站点管理",   sites_url %></li>
               <li><%= link_to current_user.name, '#' %></li>
 	      <li><%= link_to "Log out", logout_path, method: "delete" %></li>
 	   <% else %>
