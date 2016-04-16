@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   post '/takes/register' => 'takes#create' 
   post '/reservations/register' => 'reservations#create' 
   delete 'logout' => 'sessions#destroy'
+  post '/api/update_driver' => 'apis#update_driver' 
+  get '/fetchgps/:bus_number_id' => 'apis#fetchgps' 
 
 end
