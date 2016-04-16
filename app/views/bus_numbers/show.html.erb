@@ -3,16 +3,29 @@
 <aside class="col-md-4">
 <section class="user_info">
 <h1>
-<% @sites.each do |site| %> 
-<%= site.position %> <br/>
-<% end %> 
+<%= @bus_number.name %>
 </h1>
+<h3>
+<% @sites.each_with_index do |site,index| %> 
+<% if index == 0 %>
+<section>起点 <%= site.position %> </section>
+<% else %>
+<section>
+第<%= index  %>站 <%= site.position %> </section>
+<% end %> 
+<% end %> 
+</h3>
 </section>
 <section class="user_info">
+<h3>
 发车时间: <%= @bus_number.start_time %>
-</section>
-<section class="user_info">
+</h3>
+<h3>
 司机姓名: <%= @bus_driver.name %>
+</h3>
+<h3>
+最大可载: 60人
+</h3>
 </section>
 <section>
 <div id="allmap"></div>

@@ -2,11 +2,12 @@
 class BusRoutesController < ApplicationController
 
 def show
-@sites = []
+ @sites = []
  @bus_route = BusRoute.find(params[:id])
  @bus_route.sites.each do |site|
 	@sites << Site.find(site)
  end 
+ @bus_numbers = @bus_route.bus_numbers 
 
 end
 

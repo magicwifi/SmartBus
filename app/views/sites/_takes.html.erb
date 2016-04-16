@@ -1,0 +1,27 @@
+<h3>乘车记录</h3> 
+<div class="device-status">
+
+  <div class="panel-body">
+ 
+  </div>
+
+
+<table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+a           <th>乘客姓名</th>
+            <th>乘车时间</th>
+          </tr>
+        </thead>
+        <tbody>
+<% @takes.each_with_index do |take,index| %> 
+          <tr>
+            <th scope="row"><%= index %></th>
+            <td><%= take.passenger.name %></td>
+            <td><%= take.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          </tr>
+<% end %> 
+        </tbody>
+      </table>
+</div>

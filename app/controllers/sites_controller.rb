@@ -7,6 +7,8 @@ end
 
 def show
 @site = Site.find(params[:id])
+@reservations = @site.reservations
+@takes =@site.takes
 end
 
 def index

@@ -1,6 +1,8 @@
 # encoding:utf-8
 class Site < ActiveRecord::Base
 validates :position,uniqueness: true, presence: true, length: { maximum: 50 } 
+has_many :takes
+has_many :reservations
 
 def self.query_lat_long(place)
   require"open-uri"
