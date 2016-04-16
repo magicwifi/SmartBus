@@ -9,6 +9,13 @@ def show
 @site = Site.find(params[:id])
 @reservations = @site.reservations
 @takes =@site.takes
+@bus_numbers = []
+@site.query_route.each do |route|
+	route.bus_numbers.each do |bus_number|
+		@bus_numbers << bus_number
+	end
+end
+
 end
 
 def index

@@ -12,6 +12,12 @@
 </aside>
 
 <div class="col-md-8">
+<h3>该站共经过<%= @bus_numbers.length %> 辆</h3>
+<% @bus_numbers.each do |bus_number| %> 
+<h4>
+<%= bus_number.name %> 上座率 <%= bus_number.in_rate %>	
+</h4>
+<% end %> 
 <section>
 <%= render 'takes'    %>
 </section>

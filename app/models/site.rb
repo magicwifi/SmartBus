@@ -27,5 +27,15 @@ def self.query_lat_long(place)
 
 end
 
+def query_route
+	route_array = []
+	BusRoute.all.each do |route|
+		if route.sites.include?(self.id)
+			route_array << route
+		end
+	end
+	route_array
+end
+
 
 end

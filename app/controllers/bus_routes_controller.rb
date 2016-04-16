@@ -8,7 +8,6 @@ def show
 	@sites << Site.find(site)
  end 
  @bus_numbers = @bus_route.bus_numbers 
-
 end
 
 def index

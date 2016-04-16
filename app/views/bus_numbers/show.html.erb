@@ -24,7 +24,7 @@
 司机姓名: <%= @bus_driver.name %>
 </h3>
 <h3>
-最大可载: 60人
+最大可载: <%= @bus_number.capacity %>
 </h3>
 </section>
 <section>
@@ -33,6 +33,10 @@
 </aside>
 
 <div class="col-md-8">
+<section>
+<h3>今日上座率百分之<%= @in_rate %>，已预约<%= @in_number %>人 </h3>
+</section>
+<div id="device-middle"></div>
 
 <section>
 <%= render 'takes'    %>

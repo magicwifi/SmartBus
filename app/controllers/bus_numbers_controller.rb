@@ -10,8 +10,10 @@ def show
  end
  
  @reservations = @bus_number.reservations
- @takes =@bus_number.takes
-
+ @takes = @bus_number.takes
+ @in_rate = @bus_number.in_rate
+ @in_number = @bus_number.in_number
+ 
 end
 
 def index
