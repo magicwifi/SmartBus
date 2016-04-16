@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415234406) do
+ActiveRecord::Schema.define(version: 20160416032208) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",                  limit: 255
@@ -24,11 +24,20 @@ ActiveRecord::Schema.define(version: 20160415234406) do
   end
 
   create_table "bus_drivers", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.float    "lat_now",    limit: 24,  default: 40.1345
-    t.float    "long_now",   limit: 24,  default: 116.432
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.string   "name",          limit: 255
+    t.float    "lat_now",       limit: 24,  default: 40.1345
+    t.float    "long_now",      limit: 24,  default: 116.432
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.integer  "bus_number_id", limit: 4
+  end
+
+  create_table "bus_numbers", force: :cascade do |t|
+    t.string   "name",         limit: 255
+    t.integer  "bus_route_id", limit: 4
+    t.integer  "start_time",   limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "bus_routes", force: :cascade do |t|

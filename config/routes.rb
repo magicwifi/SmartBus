@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :trashes
   resources :sites
   resources :bus_routes
+  resources :bus_numbers
   resources :bus_drivers
   resources :metatrashes
   get 'metatrashes/detail/:id' => 'metatrashes#detail', as: 'detail_metatrash'
