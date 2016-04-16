@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'metatrashes/detail/:id' => 'metatrashes#detail', as: 'detail_metatrash'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create' 
+  post '/takes/register' => 'takes#create' 
+  post '/reservations/register' => 'reservations#create' 
   delete 'logout' => 'sessions#destroy'
 
 end

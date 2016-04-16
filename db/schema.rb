@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416065231) do
+ActiveRecord::Schema.define(version: 20160416081008) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",                  limit: 255
@@ -104,10 +104,10 @@ ActiveRecord::Schema.define(version: 20160416065231) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer  "passenger_id", limit: 4
-    t.integer  "bus_number",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "passenger_id",  limit: 4
+    t.integer  "bus_number_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "sites", force: :cascade do |t|
@@ -119,10 +119,10 @@ ActiveRecord::Schema.define(version: 20160416065231) do
   end
 
   create_table "takes", force: :cascade do |t|
-    t.integer  "passenger_id", limit: 4
-    t.integer  "bus_number",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "passenger_id",  limit: 4
+    t.integer  "bus_number_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "trashes", force: :cascade do |t|
