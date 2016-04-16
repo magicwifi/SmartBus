@@ -1,0 +1,20 @@
+ <% provide(:title, 'All users') %>
+    <h1>全部乘客</h1>
+<br>
+<%= link_to "新增乘客", new_passenger_url, {:class=>"btn btn-primary" } %>
+<br>
+<br>
+<br>
+    <%= will_paginate %>
+    <ul class="users">
+<% @passengers.each do |passenger| %> 
+         <li>
+	<div class="anode">
+      <%= passenger.name %> | <%= passenger.bus_number.nil? ? "未预约":passenger.bus_number %>
+	<div class="bnode"><%= link_to "更新", edit_passenger_url(passenger), {:class=>"btn btn-primary" } %> | <%= link_to "删除", passenger, :class=>"btn btn-danger", :method => :delete, :data => { :confirm=> "You sure?" }  %>   </div></div>
+        </li>
+<% end %> 
+</ul>
+   <%= will_paginate %>
+
+

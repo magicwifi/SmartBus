@@ -5,6 +5,8 @@ source 'https://ruby.taobao.org'
 gem 'rails', '4.2.2'
 # Use mysql as the database for Active Record
 gem 'bcrypt',               '3.1.7'
+gem 'faker',	'1.4.2'
+
 gem 'mysql2', '~> 0.3.18'
 
 # Use SCSS for stylesheets
@@ -26,6 +28,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass',       '3.2.0.0'
+gem 'will_paginate',	    '3.0.7'
+gem 'bootstrap-will_paginate',	    '0.0.10'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

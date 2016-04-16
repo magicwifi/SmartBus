@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :bus_numbers
   resources :bus_drivers
   resources :metatrashes
+  resources :passengers
   get 'metatrashes/detail/:id' => 'metatrashes#detail', as: 'detail_metatrash'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create' 
