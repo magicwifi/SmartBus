@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415152449) do
+ActiveRecord::Schema.define(version: 20160415234406) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",                  limit: 255
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20160415152449) do
     t.float    "long_now",   limit: 24,  default: 116.432
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+  end
+
+  create_table "bus_routes", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "sites",      limit: 65535
   end
 
   create_table "metatrashes", force: :cascade do |t|

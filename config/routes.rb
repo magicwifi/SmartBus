@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   resources :trashes
   resources :sites
+  resources :bus_routes
   resources :bus_drivers
   resources :metatrashes
   get 'metatrashes/detail/:id' => 'metatrashes#detail', as: 'detail_metatrash'
