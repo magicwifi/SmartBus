@@ -7,7 +7,10 @@ def show
  @bus_driver = @bus_number.bus_driver
  @bus_route.sites.each do |site|
 	@sites << Site.find(site)
- end 
+ end
+ 
+ @reservations = @bus_number.reservations
+ @takes =@bus_number.takes
 
 end
 
@@ -20,4 +23,7 @@ def destroy
         flash[:success] = "删除成功"
         redirect_to sites_url
 end
+
+
+
 end
