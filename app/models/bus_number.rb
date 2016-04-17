@@ -33,6 +33,10 @@ def in_number
  self.today_passenger.length
 end
 
+def left
+ self.capacity - self.in_number
+end
+
 
 def self.fetchgps(params)
 busnumber = BusNumber.find(params[:bus_number_id])
