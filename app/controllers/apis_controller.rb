@@ -108,7 +108,7 @@ ret = pusher.push_message_to_app(app_message)
 
 
   def push_passenger
-pusher = IGeTui.pusher("m7jGDYVYi26ZIapBQboueA", "FnS4kKgD6V8IEZC9vsrIk8", "7Nb8oyKbpe9ZSyuuyamkW2")
+pusher = IGeTui.pusher("m7jGDYVYi26ZIapBQboueA", "SBoibErAsK7xtMmauPTsj4", "qBG2kXM9GdAr6OpIdVGtG4")
 
 pushtext  = params[:push].to_s
 # 创建通知模板
@@ -120,7 +120,7 @@ template.text = pushtext
 
 app_message = IGeTui::AppMessage.new
 app_message.data = template
-app_message.app_id_list = ["5sdmXqjkpmACdA6VzMeVd6"]
+app_message.app_id_list = ["m7jGDYVYi26ZIapBQboueA"]
 ret = pusher.push_message_to_app(app_message)
 
 
