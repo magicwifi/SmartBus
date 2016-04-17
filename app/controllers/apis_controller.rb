@@ -64,6 +64,22 @@ skip_before_filter :verify_authenticity_token
 
 
 
+   def show_route_all
+		check = BusRoute.show_route_all
+		if check[:check]
+			render :json => {:code=>'200',:routes=>check[:routes] }
+		else
+			back_code(400,'error')
+		end
+   end  
 
+   def show_route_detail
+		check = BusRoute.show_route_detail(params)
+		if check[:check]
+			render :json => {:code=>'200',:bus_numbers=>check[:bus_numbers],:site =>check[:site] }
+		else
+			back_code(400,'error')
+		end
+   end  
 
 end

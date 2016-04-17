@@ -53,7 +53,6 @@ skip_before_filter :verify_authenticity_token
 	return;
       end
  	render :text => '预定取消成功'
-  
  end
 
 end
