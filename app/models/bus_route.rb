@@ -20,8 +20,7 @@ def self.show_route_detail(params)
 	sites.each do |site|
 		site_positions << Site.find(site).position
 	end
-	bus_numbers = br.bus_numbers
-	{ :check=>true, :bus_numbers => bus_numbers,:site=>site_positions }
+	{ :check=>true, :bus_numbers => bus_numbers,:site=>sites.first }
 		
 	end
 end

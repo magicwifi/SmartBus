@@ -22,7 +22,7 @@ skip_before_filter :verify_authenticity_token
   def show_bus_detail
 	check = BusNumber.show_bus_detail(params)
 	if check[:check]
-			render :json => {:code=>'200',:bus_number=>check[:bus_number],:driver=>check[:driver],:route=>check[:route] }
+			render :json => {:code=>'200',:bus_number=>check[:bus_number],:driver=>check[:driver],:route=>check[:route],:startup=>check[:startup] }
 	else
 			back_code(check[:code],check[:msg])
 	end
@@ -83,22 +83,24 @@ skip_before_filter :verify_authenticity_token
    end  
 
   def push_driver
-app_key = 'b1a1740a002b3c52e2d36e55'
-master_secret = '4369e7863de2cca9ebbb0049'
 
-client = JPush::JPushClient.new(app_key, master_secret)
- 
+pusher = IGeTui.pusher("5sdmXqjkpmACdA6VzMeVd6", "FnS4kKgD6V8IEZC9vsrIk8", "7Nb8oyKbpe9ZSyuuyamkW2")
+
 pushtext  = params[:push].to_s
+# 创建通知模板
+template = IGeTui::NotificationTemplate.new
+template.logo = 'push.png'
+template.logo_url = 'http://www.igetui.com/wp-content/uploads/2013/08/logo_getui1.png'
+template.title = '司机消息群发'
+template.text = pushtext 
 
-logger = Logger.new(STDOUT)
-#send broadcast
-payload1 = JPush::PushPayload.build(
- platform: JPush::Platform.all,
- audience: JPush::Audience.all,
- notification: JPush::Notification.build(
-   alert: pushtext)
-)
-result = client.sendPush(payload1)
+app_message = IGeTui::AppMessage.new
+app_message.data = template
+app_message.app_id_list = ["5sdmXqjkpmACdA6VzMeVd6"]
+ret = pusher.push_message_to_app(app_message)
+
+
+
 
         flash[:success] = "推送成功"
         redirect_to bus_drivers_url
@@ -106,21 +108,25 @@ result = client.sendPush(payload1)
 
 
   def push_passenger
-app_key = 'b1a1740a002b3c52e2d36e55'
-master_secret = '4369e7863de2cca9ebbb0049'
-client = JPush::JPushClient.new(app_key, master_secret)
- 
-pushtext  = params[:push].to_s
+pusher = IGeTui.pusher("m7jGDYVYi26ZIapBQboueA", "FnS4kKgD6V8IEZC9vsrIk8", "7Nb8oyKbpe9ZSyuuyamkW2")
 
-logger = Logger.new(STDOUT)
-#send broadcast
-payload1 = JPush::PushPayload.build(
- platform: JPush::Platform.all,
- audience: JPush::Audience.all,
- notification: JPush::Notification.build(
-   alert: pushtext)
-)
-result = client.sendPush(payload1)
+pushtext  = params[:push].to_s
+# 创建通知模板
+template = IGeTui::NotificationTemplate.new
+template.logo = 'push.png'
+template.logo_url = 'http://www.igetui.com/wp-content/uploads/2013/08/logo_getui1.png'
+template.title = '乘客消息群发'
+template.text = pushtext 
+
+app_message = IGeTui::AppMessage.new
+app_message.data = template
+app_message.app_id_list = ["5sdmXqjkpmACdA6VzMeVd6"]
+ret = pusher.push_message_to_app(app_message)
+
+
+
+
+
         flash[:success] = "推送成功"
         redirect_to passengers_url
   end

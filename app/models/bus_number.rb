@@ -88,8 +88,9 @@ else
 	sites.each do |site|
 		site_positions << Site.find(site).position
 	end
+	 startup =  sites.first
 	route = {:bus_number_id=>bn.id,:sites => site_positions}
-	{ :check=>true, :bus_number=>bn,:driver=>driver,:route=>route }
+	{ :check=>true, :bus_number=>bn,:driver=>driver,:route=>route,:startup=>startup }
 	
 end
 
