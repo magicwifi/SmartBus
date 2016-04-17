@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post 'bus_login' => 'bus_sessions#create', as: 'bus_login_path'
   post '/takes/register' => 'takes#create' 
   post '/reservations/register' => 'reservations#create' 
+  post '/reservations/cancel' => 'reservations#cancel' 
   delete 'logout' => 'sessions#destroy'
   delete 'bus_logout' => 'bus_sessions#destroy', as: 'bus_logout'
   post '/api/update_driver' => 'apis#update_driver' 
