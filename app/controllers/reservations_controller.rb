@@ -14,13 +14,21 @@ skip_before_filter :verify_authenticity_token
 	bus_number_id = params[:bus_number_id].to_i
 	passenger_id = params[:passenger_id].to_i
 	site_id = params[:site_id].to_i
-   	Reservation.create!(:bus_number_id=>bus_number_id, :passenger_id=>passenger_id,:site_id=>site_id)
 	passenger = Passenger.find(passenger_id)
+	if passenger.bus_number_id == bus_number_id
+ 		render :text => '您已经预定过相同车次'
+		return;
+	else
         passenger.update_columns(:bus_number_id=>bus_number_id)
+	if passenger.reservations.last.can_cancel?
+   		passenger.reservations.last.destroy
+ 	end	
+	Reservation.create!(:bus_number_id=>bus_number_id, :passenger_id=>passenger_id,:site_id=>site_id)
 	left_passenger = BusNumber.find(bus_number_id).left
+	end
       rescue Exception => e
 	logger.debug e
- 	render :text => '{"result":400}'
+ 	render :text => '预定失败，参数错误'
 	return;
       end
  	render :text => '预定成功，剩余座位'+left_passenger.to_s
