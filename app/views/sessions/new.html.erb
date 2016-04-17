@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
 <%= form_for(:session, url: login_path) do |f| %> 
- <%= f.label :email %>
-          <%= f.email_field :email %>
-          <%= f.label :password %>
+ <%= f.label :name,"管理员姓名" %>
+          <%= f.text_field :name %>
+          <%= f.label :password, "密码" %>
           <%= f.password_field :password %>
-          <%= f.submit "Log in", class: "btn btn-primary" %>
+          <%= f.submit "系统管理员登录", class: "btn btn-primary" %>
 <% end %>
       </div>
 </div>
