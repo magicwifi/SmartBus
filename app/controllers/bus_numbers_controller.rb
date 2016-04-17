@@ -26,6 +26,23 @@ def destroy
         redirect_to sites_url
 end
 
+def new
+@bus_number = BusNumber.new
+end
 
+def create
+@bus_number = BusNumber.new(bus_number_params) 
+if @bus_number.save
+flash[:success] = "添加成功!"
+redirect_to bus_numbers_url
+else
+render 'new' 
+end
+end
+
+private 
+def bus_number_params
+  params.require(:bus_number).permit(:name,:bus_route_id,:capacity,:start_time)
+end
 
 end

@@ -1,0 +1,18 @@
+<% provide(:title, '注册') %>
+<h1>增加车次</h1>
+
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<%= form_for(@bus_number) do |f| %> 
+<%= f.label :name,'车次名称' %>
+<%= f.text_field :name, class: 'form-control'  %>
+<%= f.label :start_time,'车次时间' %>
+<%= f.text_field :start_time, class: 'form-control'  %>
+<%= f.label :capacity,'车次载客数' %>
+<%= f.text_field :capacity, class: 'form-control'  %>
+<%= f.label :bus_route_id,'车次路线' %>
+<%= f.text_field :bus_route_id, class: 'form-control'  %>
+<%= f.submit "添加完成", class: "btn btn-primary" %>
+<% end %>
+</div>
+</div>

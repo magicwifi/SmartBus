@@ -21,7 +21,7 @@
 发车时间: <%= @bus_number.start_time %>
 </h3>
 <h3>
-司机姓名: <%= @bus_driver.name %>
+司机姓名: <%= @bus_driver.nil? ? "未分配" : @bus_drvier.name %>
 </h3>
 <h3>
 最大可载: <%= @bus_number.capacity %>
