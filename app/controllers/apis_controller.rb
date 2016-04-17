@@ -82,4 +82,47 @@ skip_before_filter :verify_authenticity_token
 		end
    end  
 
+  def push_driver
+app_key = 'b1a1740a002b3c52e2d36e55'
+master_secret = '4369e7863de2cca9ebbb0049'
+
+client = JPush::JPushClient.new(app_key, master_secret)
+ 
+pushtext  = params[:push].to_s
+
+logger = Logger.new(STDOUT)
+#send broadcast
+payload1 = JPush::PushPayload.build(
+ platform: JPush::Platform.all,
+ audience: JPush::Audience.all,
+ notification: JPush::Notification.build(
+   alert: pushtext)
+)
+result = client.sendPush(payload1)
+
+        flash[:success] = "推送成功"
+        redirect_to bus_drivers_url
+  end
+
+
+  def push_passenger
+app_key = 'b1a1740a002b3c52e2d36e55'
+master_secret = '4369e7863de2cca9ebbb0049'
+client = JPush::JPushClient.new(app_key, master_secret)
+ 
+pushtext  = params[:push].to_s
+
+logger = Logger.new(STDOUT)
+#send broadcast
+payload1 = JPush::PushPayload.build(
+ platform: JPush::Platform.all,
+ audience: JPush::Audience.all,
+ notification: JPush::Notification.build(
+   alert: pushtext)
+)
+result = client.sendPush(payload1)
+        flash[:success] = "推送成功"
+        redirect_to passengers_url
+  end
+
 end

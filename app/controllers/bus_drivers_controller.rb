@@ -30,7 +30,7 @@ end
 
 def destroy
         BusDriver.find(params[:id]).destroy
-        flash[:success] = "User deleted"
+        flash[:success] = "删除用户"
         redirect_to bus_drivers_url
 end
 
@@ -44,6 +44,11 @@ else
 render 'new' 
 end
 end
+
+def broadcast
+end
+
+
 
 private 
 def bus_driver_params

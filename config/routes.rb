@@ -32,5 +32,9 @@ Rails.application.routes.draw do
   get '/show_route_detail/:bus_route_id' => 'apis#show_route_detail' 
   get '/show_route_all' => 'apis#show_route_all' 
   post '/passenger_login' => 'apis#login' 
+  post '/push_driver' => 'apis#push_driver' 
+  get '/broadcast_driver' => 'bus_drivers#broadcast' 
+  post '/push_passenger' => 'apis#push_passenger' 
+  get '/broadcast_passenger' => 'passengers#broadcast' 
 
 end
