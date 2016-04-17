@@ -20,7 +20,7 @@ skip_before_filter :verify_authenticity_token
 		return;
 	else
 
-	if passenger.reservations.last.can_cancel?
+	if  !passenger.reservations.last.nil? and passenger.reservations.last.can_cancel?
    		passenger.reservations.last.destroy
  	end	
         passenger.update_columns(:bus_number_id=>bus_number_id)
