@@ -15,14 +15,15 @@ skip_before_filter :verify_authenticity_token
 	passenger_id = params[:passenger_id].to_i
 	site_id = params[:site_id].to_i
 	passenger = Passenger.find(passenger_id)
-	if passenger.bus_number_id == bus_number_id
+	if passenger.bus_number_id == bus_number_id and !passenger.reservations.last.nil? and passenger.reservations.last.can_cancel?
  		render :text => '您已经预定过相同车次'
 		return;
 	else
-        passenger.update_columns(:bus_number_id=>bus_number_id)
+
 	if passenger.reservations.last.can_cancel?
    		passenger.reservations.last.destroy
  	end	
+        passenger.update_columns(:bus_number_id=>bus_number_id)
 	Reservation.create!(:bus_number_id=>bus_number_id, :passenger_id=>passenger_id,:site_id=>site_id)
 	left_passenger = BusNumber.find(bus_number_id).left
 	end

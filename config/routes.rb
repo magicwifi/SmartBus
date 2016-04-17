@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   get '/fetchgps/:bus_number_id' => 'apis#fetchgps' 
   get '/show_bus_detail/:bus_number_id' => 'apis#show_bus_detail' 
   get '/show_bus_all' => 'apis#show_bus_all' 
+  post '/passenger_login' => 'apis#login' 
 
 end

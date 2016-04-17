@@ -28,6 +28,15 @@ skip_before_filter :verify_authenticity_token
 	end
   end
 
+  def login
+	passenger = Passenger.find_by(name: params[:name].downcase) 
+        if passenger && passenger.authenticate(params[:password])
+		render :json => {:code=>'200',:passenger_id => passenger.id}
+		
+	else
+			back_code('400','error')
+	end
+  end
 
   def update_driver
      begin

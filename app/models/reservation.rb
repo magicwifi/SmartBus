@@ -6,10 +6,10 @@ belongs_to :site
 
 def can_cancel?
  bn = self.bus_number
- if Time.now > bn.start_datetime
-        false
+ if !bn.nil? && Time.now < bn.start_datetime
+	true
  else
-        true
+        false
  end
 end
 
