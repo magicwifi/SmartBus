@@ -71,6 +71,27 @@ def self.show_bus_all
 end
 
 
+def self.show_bus_detail(params)
+bn = BusNumber.find(params[:bus_number_id])
+if bn.nil? or bn.bus_driver.nil? or bn.bus_route.nil?
+	{:check=>false, :code=>400,:msg=>"Not Found"}
+else
+  	bd = bn.bus_driver
+  	driver= {:lat=>bd.lat_now,:lng=>bd.long_now,:running=>bd.running?,:name=>bd.name,:bus_number_id=>bn.id}
+	
+	site_positions =[]
+  	sites = bn.bus_route.sites
+	sites.each do |site|
+		site_positions << Site.find(site).position
+	end
+	route = {:bus_number_id=>bn.id,:sites => site_positions}
+	{ :check=>true, :bus_number=>bn,:driver=>driver,:route=>route }
+	
+end
+
+end
+
+
 
 end
 

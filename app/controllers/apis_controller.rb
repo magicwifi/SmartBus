@@ -19,6 +19,15 @@ skip_before_filter :verify_authenticity_token
 	end
   end
 
+  def show_bus_detail
+	check = BusNumber.show_bus_detail(params)
+	if check[:check]
+			render :json => {:code=>'200',:bus_number=>check[:bus_number],:driver=>check[:driver],:route=>check[:route] }
+	else
+			back_code(check[:code],check[:msg])
+	end
+  end
+
 
   def update_driver
      begin
