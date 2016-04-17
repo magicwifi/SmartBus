@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   post '/api/update_driver' => 'apis#update_driver' 
   get '/fetchgps/:bus_number_id' => 'apis#fetchgps' 
+  get '/show_bus_all' => 'apis#show_bus_all' 
 
 end

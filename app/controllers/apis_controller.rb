@@ -35,6 +35,17 @@ skip_before_filter :verify_authenticity_token
  	render :text => '{"result":200}'
      end
 
+   def show_bus_all
+		check = BusNumber.show_bus_all
+		if check[:check]
+			render :json => {:code=>'200',:bus_numbers=>check[:bus_numbers],:drivers=>check[:drivers],:routes=>check[:routes] }
+		else
+			back_code(400,'error')
+		end
+   end  
+
+
+
 
 
 end

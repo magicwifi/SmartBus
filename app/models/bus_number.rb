@@ -43,8 +43,36 @@ else
   result= {:lat=>driver.lat_now,:lng=>driver.long_now,:running=>driver.running?}
 {:check=>true, :result=>result}
 end
+end
+
+def self.show_bus_all
+	drivers = []
+	routes = []
+	bus_numbers = BusNumber.all
+	bus_numbers.each do |bn|
+		if bn.bus_driver.nil? or bn.bus_route.nil?
+			
+		else
+  			bd = bn.bus_driver
+  			driver= {:lat=>bd.lat_now,:lng=>bd.long_now,:running=>bd.running?,:name=>bd.name,:bus_number_id=>bn.id}
+			drivers << driver
+			
+			site_positions =[]
+  			sites = bn.bus_route.sites
+			sites.each do |site|
+				site_positions << Site.find(site).position
+			end
+			route = {:bus_number_id=>bn.id,:sites => site_positions}
+			routes << route
+		end
+	end
+	
+	{ :check=>true, :bus_numbers=>bus_numbers,:drivers=>drivers,:routes=>routes }
+end
+
+
 
 end
 
 
-end
+
