@@ -17,10 +17,13 @@ Rails.application.routes.draw do
   resources :passengers
   get 'metatrashes/detail/:id' => 'metatrashes#detail', as: 'detail_metatrash'
   get 'login' => 'sessions#new'
+  get 'bus_login' => 'bus_sessions#new'
   post 'login' => 'sessions#create' 
+  post 'bus_login' => 'bus_sessions#create', as: 'bus_login_path'
   post '/takes/register' => 'takes#create' 
   post '/reservations/register' => 'reservations#create' 
   delete 'logout' => 'sessions#destroy'
+  delete 'bus_logout' => 'bus_sessions#destroy', as: 'bus_logout'
   post '/api/update_driver' => 'apis#update_driver' 
   get '/fetchgps/:bus_number_id' => 'apis#fetchgps' 
   get '/show_bus_detail/:bus_number_id' => 'apis#show_bus_detail' 

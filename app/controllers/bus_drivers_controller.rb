@@ -1,6 +1,6 @@
 # encoding:utf-8
 class BusDriversController < ApplicationController
-before_action :logged_in_user
+before_action :bus_logged_in_user
 
 def new
 @bus_driver = BusDriver.new
