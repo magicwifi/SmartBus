@@ -44,7 +44,7 @@ if busnumber.nil? or busnumber.bus_driver.nil?
 	{:check=>false, :code=>400,:msg=>"Not Found Doctor"}
 else
   driver = busnumber.bus_driver
-  result= {:lat=>driver.lat_now,:lng=>driver.long_now,:running=>driver.running?}
+  result= {:lat=>driver.lat_now.to_s,:lng=>driver.long_now.to_s,:running=>driver.running?}
 {:check=>true, :result=>result}
 end
 end
