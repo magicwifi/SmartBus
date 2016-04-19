@@ -1,5 +1,7 @@
 # encoding:utf-8
 class BusNumbersController < ApplicationController
+before_action :logged_in_user
+
 def show
 @sites = []
  @bus_number = BusNumber.find(params[:id])
