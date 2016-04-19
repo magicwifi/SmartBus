@@ -1,5 +1,6 @@
 # encoding:utf-8
 class SitesController < ApplicationController
+before_action :logged_in_user
 
 def new
 @site = Site.new
