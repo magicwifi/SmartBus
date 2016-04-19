@@ -1,6 +1,6 @@
 # encoding:utf-8
 class Site < ActiveRecord::Base
-validates :position,uniqueness: true, presence: true, length: { maximum: 50 } 
+validates :position, presence: true, length: { maximum: 50 } 
 has_many :takes
 has_many :reservations
 

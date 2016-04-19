@@ -1,3 +1,4 @@
+# encoding:utf-8
 class SessionsController < ApplicationController
   def new
   end
@@ -8,7 +9,7 @@ class SessionsController < ApplicationController
 	log_in admin
 	redirect_to bus_numbers_url
 	else
-	flash[:danger] = 'Invalid email/password combination' 
+	flash[:danger] = '登陆失败' 
 	render 'new' 
 	end
   end
